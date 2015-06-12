@@ -9,22 +9,27 @@
 <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
 <meta http-equiv="expires" content="0">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+#downloadBtn:ACTIVE, #downloadBtn:VISITED {
+	color: red;
+}
+</style>
 </head>
 <body>
 
-	<div class="container-fluid">
-		<div class="row" align="center">
-			<span style="font-size: 20px; font-weight: bold;">钱包NFC内测版</span>
+	<div id="iphone_container" class="container-fluid" style="margin-top: 10px; display: none;">
+		<div class="row" style="font-size: 20px;" align="center">
+			<span style="color: red;">苹果系统暂不支持，敬请期待</span>
 		</div>
+	</div>
+
+	<div id="android_container" class="container-fluid" style="margin-top: 10px; display: none;">
+
 		<div class="row" align="center">
 			<span style="color: red;">如果还没有开始下载请点击下方链接：</span>
 		</div>
 		<div class="row" align="center">
-			<button id="innerBtn" type="button" style="font-weight: bold; font-size: 20px;" class="btn btn-link">内网下载</button>
-			<button id="outerBtn" type="button" style="font-weight: bold; font-size: 20px;" class="btn btn-link">外网下载</button>
-		</div>
-		<div class="row" align="center">
-			<span style="color: red;">点击 “内网下载” 请确保您已连接了alibaba-inc的WIFI网络</span>
+			<a id="downloadBtn" type="button" style="font-weight: bold; font-size: 20px;" class="btn btn-link" title="下载地址">钱包NFC内测版</a>
 		</div>
 
 		<div class="row" align="center">
@@ -32,26 +37,59 @@
 		</div>
 
 	</div>
-	
-<script src="js/jquery.min.js"></script>
-<!-- <script src="js/bootstrap.min.js"></script>
- -->
-<script type="text/javascript">
-	var downloadUrl = "http://oss-cn-hangzhou-zmf.aliyuncs.com/024028/prod/client/package/home/admin/clients/wallet/ANDROID/rc/8.6.0.060301/72193/release/Alipay_860060301_RC_201506031716.apk?Expires=1434608499&OSSAccessKeyId=RLEAKPcplCwvgmmP&Signature=gh7bjdcvfBcf3xNfcDcbOEsYybg%3D&filename=Alipay_860060301_RC_201506031716.apk";
-	location.href = downloadUrl;
-	$("#innerBtn").click(function() {
-		location.href = downloadUrl;
-	})
-	
-	$("#outerBtn").click(function() {
-		location.href = "http://121.41.78.14/download/wallet/Alipay_860060301_RC_201506031716.apk";
-	})
 
-	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document
-			.write(unescape("%3Cspan style='display: none;' id='cnzz_stat_icon_1255395991'%3E%3C/span%3E%3Cscript src='"
-					+ cnzz_protocol
-					+ "s11.cnzz.com/stat.php%3Fid%3D1255395991%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-</script>
+	<script src="js/jquery.min.js"></script>
+	<!-- <script src="js/bootstrap.min.js"></script>
+ -->
+	<script type="text/javascript">
+		checkOs();
+		function checkOs() {
+			var u = navigator.userAgent;
+			if (u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1 || u.indexOf('iPad') > -1) {
+				//苹果系统无法下载
+				$("#iphone_container").show();
+			} else {
+				$("#android_container").show();
+			}
+		}
+		
+		var downloadUrl = "http://oss-cn-hangzhou-zmf.aliyuncs.com/024028/prod/client/package/home/admin/clients/wallet/ANDROID/rc/8.6.0.060301/72193/release/Alipay_860060301_RC_201506031716.apk?Expires=1435201395&OSSAccessKeyId=RLEAKPcplCwvgmmP&Signature=Ez2Q5P8gYF2AFSjZoBNhulYtfKc%3D&filename=Alipay_860060301_RC_201506031716.apk";
+		downloadApk();
+		$("#downloadBtn").click(function() {
+			downloadApk();
+		});
+
+		function downloadApk() {
+			try {
+				$
+						.ajax({
+							url : "https://work.alibaba-inc.com/work/widget/getHomeWidgetTips.jsonp",
+							dataType : "jsonp",
+							async : false,
+							timeout : 300,
+							success : function(data, status) {
+								log("success: " + status);
+								window.location.href = downloadUrl;
+							},
+							error : function(xhr, status, e) {
+								log("error: " + status);
+								window.location.href = "http://121.41.78.14/download/wallet/Alipay_860060301_RC_201506031716_1.apk";
+							}
+						});
+			} catch (err) {
+				log("err: " + err);
+				alert("网络异常!");
+			}
+		}
+		function log(str) {
+			console.log(str);
+		}
+
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document
+				.write(unescape("%3Cspan style='display: none;' id='cnzz_stat_icon_1255395991'%3E%3C/span%3E%3Cscript src='"
+						+ cnzz_protocol
+						+ "s11.cnzz.com/stat.php%3Fid%3D1255395991%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+	</script>
 </body>
 </html>
