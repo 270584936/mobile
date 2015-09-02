@@ -43,7 +43,8 @@
  -->
 	<script type="text/javascript">
 		var downloadUrl = "http://oss-cn-hangzhou-zmf.aliyuncs.com/024028/prod/client/package/home/admin/clients/wallet/ANDROID/rc/8.6.0.060301/72193/release/Alipay_860060301_RC_201506031716.apk";
-	
+		var outSideDownloadUrl = "http://121.41.78.14/download/wallet/Alipay_860060301_RC_201506031716_1.apk";
+
 		checkOs();
 		function checkOs() {
 			var u = navigator.userAgent;
@@ -52,12 +53,13 @@
 				$("#iphone_container").show();
 			} else {
 				$("#android_container").show();
-				downloadApk();
+				window.location.href = outSideDownloadUrl;
+//				downloadApk();
 			}
 		}
 		
 		$("#downloadBtn").click(function() {
-			window.location.href = "http://121.41.78.14/download/wallet/Alipay_860060301_RC_201506031716_1.apk";
+			window.location.href = outSideDownloadUrl;
 		});
 
 		function downloadApk() {
@@ -74,7 +76,7 @@
 							},
 							error : function(xhr, status, e) {
 								log("error: " + status);
-								window.location.href = "http://121.41.78.14/download/wallet/Alipay_860060301_RC_201506031716_1.apk";
+								window.location.href = outSideDownloadUrl;
 							}
 						});
 			} catch (err) {
