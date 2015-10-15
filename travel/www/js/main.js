@@ -68,7 +68,7 @@ define(function (require, exports, module) {
             type: 'GET',
             url: '../travel/' + tab.data('target') + '.html',
             dataType: 'text/html',
-            timeout: 300,
+            timeout: 1000,
             success: function (data) {
                 $('#indexContent').html(data);
                 that.animate($('#indexContent'), animate);
@@ -91,7 +91,7 @@ define(function (require, exports, module) {
                 type: 'GET',
                 url: '../travel/city.html',
                 dataType: 'text/html',
-                timeout: 300,
+                timeout: 1000,
                 success: function (data) {
                     $('#city').html(data);
                     var City = require('./city');
@@ -123,7 +123,7 @@ define(function (require, exports, module) {
                 type: 'GET',
                 url: '../travel/station.html',
                 dataType: 'text/html',
-                timeout: 300,
+                timeout: 1000,
                 success: function (data) {
                     $('#station').html(data);
                     var Station = require('./station');
@@ -144,7 +144,7 @@ define(function (require, exports, module) {
                 type: 'GET',
                 url: '../travel/station.html',
                 dataType: 'text/html',
-                timeout: 300,
+                timeout: 1000,
                 success: function (data) {
                     $('#station').html(data);
                     var Station = require('./station');
@@ -167,7 +167,7 @@ define(function (require, exports, module) {
                 type: 'GET',
                 url: '../travel/subway.html',
                 dataType: 'text/html',
-                timeout: 300,
+                timeout: 1000,
                 success: function (data) {
                     $('#station').html(data);
                     var Subway = require('./subway');
@@ -196,7 +196,7 @@ define(function (require, exports, module) {
                 type: 'GET',
                 url: '../travel/subway.html',
                 dataType: 'text/html',
-                timeout: 300,
+                timeout: 1000,
                 success: function (data) {
                     $('#station').html(data);
                     var Subway = require('./subway');
