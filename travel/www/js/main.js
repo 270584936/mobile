@@ -82,8 +82,8 @@ define(function (require, exports, module) {
 
     Index.prototype.bindCitySelect = function () {
     	$('#city_select .am-list-control').bind('DOMNodeInserted',function(){
-    		$('#startStation_select .am-list-control .adcode').html('请选择出发站');
-    		$('#endStation_select .am-list-control .adcode').html('请选择到达站');
+    		$('#startStation_select .am-list-control .adcode').html('请选择');
+    		$('#endStation_select .am-list-control .adcode').html('请选择');
     	});
         $('#city_select').on('click', function () {
             $('section').hide();
