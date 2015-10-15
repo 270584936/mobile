@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>H5AppDemo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
+
+    <!--antUI-->
+    <link rel="stylesheet" type="text/css" href="../sdk/antUI.css" media="all">
+    <script src='../sdk/antBridge.min.js'></script>
+
+    <script src='js/zepto.min.js'></script>
+    <style>
+        .am-list-label {
+            width: 40px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="am-content">
+    <div class="am-list-header">H5App demo</div>
+</div>
+<form id="form1" class="am-list am-list-flat am-list-flat-chip am-list-6lb">
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">姓名:</div>
+        <div class="am-list-control">
+            <input id='name' name="name" type="text" placeholder="" value="">
+        </div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear">
+        <div class="am-list-label">电话:</div>
+        <div class="am-list-control">
+            <input id='mobile' name="mobile" type="text" placeholder="" value="" data-format="3-4-4">
+        </div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear" data-active-class="hover">
+        <div class="am-list-label">地址:</div>
+        <div class="am-list-control">
+            <textarea id='address' name="address" class=""></textarea>
+        </div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </div>
+    <div class="am-list-item am-list-item-form am-input-autoclear" data-active-class="hover">
+        <div class="am-list-label">信息:</div>
+        <div class="am-list-control">
+            <input id='message' name="message" type="text" placeholder="" value="">
+        </div>
+        <div class="am-list-arrow"><span class="am-icon-arrow-horizontal"></span></div>
+    </div>
+</form>
+
+<div class="am-content">
+    <div class="am-flexbox am-flexbox-average">
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button am-button-red">红按钮</button>
+        </div>
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button am-button-blue">蓝按钮</button>
+        </div>
+    </div>
+</div>
+<script>
+    ant.debugEnabled();
+    ant.setOptionMenu('帮助');
+    ant.showOptionMenu();
+    ant.on('optionMenu',function(){
+        ant.alert('Hello, antBridge!');
+    });
+</script>
+</body>
+</html>

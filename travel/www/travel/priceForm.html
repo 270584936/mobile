@@ -1,0 +1,48 @@
+<form id="form1" class="am-list am-list-flat am-list-flat-chip am-list-6lb">
+	<div class="am-list" am-mode="flat chip form">
+		<div class="am-list-body">
+			<div id="city_select" class="am-list-item am-input-autoclear">
+				<div class="am-list-label">起始城市</div>
+				<div class="am-list-control">上海</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+				<div class="am-list-thumb">
+					<span class="am-icon" am-mode="arrow-horizontal"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list" am-mode="flat chip form">
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">票价</div>
+				<div class="am-list-control">
+					<input type="number" placeholder="金额" value="">
+				</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+				<div class="am-list-thumb">元</div>
+			</div>
+		</div>
+	</div>
+	<div class="am-content am-list">
+		<div class="am-flexbox am-flexbox-average">
+			<button id="purchase" type="button" class="am-button am-button-red">购买</button>
+		</div>
+	</div>
+</form>
+<script>
+	seajs.use("../js/main", function(Index) {
+		var index = new Index();
+		index.bindCitySelect();
+		$('#purchase').on('click', function() {
+			$('#success').show();
+			setTimeout(function() {
+				$('#success').hide();
+			}, 1000);
+		});
+	});
+</script>

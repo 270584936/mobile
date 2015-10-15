@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Hybird-demo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <!--amui-->
+    <link rel="stylesheet" type="text/css" href="../sdk/amui.css" media="all">
+    <!--AlipayJSBridge的二次封装，建议使用-->
+    <script src='../sdk/aliBridge.min.js'></script>
+    <script src='js/zepto.min.js'></script>
+</head>
+<body>
+<br/>
+<br/>
+<br/>
+<div class="am-content">
+    <button id="btn" type="button" class="am-button am-button-blue">close Window</button>
+</div>
+
+
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', function () {
+        Ali.popWindow();
+    });
+</script>
+</html>

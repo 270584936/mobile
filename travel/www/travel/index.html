@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>购买地铁票</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="email=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+
+<!--antUI-->
+<link rel="stylesheet" type="text/css" href="../../sdk/antUI.css" media="all">
+<link rel="stylesheet" type="text/css" href="https://a.alipayobjects.com/amui/dpl/9.0.0.2/??amui.css,widget/toast.css">
+<link rel="stylesheet" type="text/css" href="../css/scroller.css">
+<link rel="stylesheet" type="text/css" href="../css/animate.css">
+
+<script src='../js/zepto.min.js'></script>
+<script src='../js/fastclick.js'></script>
+<script src='../js/amapCache.js'></script>
+<script src='../js/touch.js'></script>
+<script src='../js/fx.js'></script>
+<style>
+.am-list-label {
+	/* width: 40px !important; */
+	
+}
+
+.am-list .am-list-item {
+	border: 0px;
+}
+
+.am-list:not ([am-version] )[am-mode~=form] .am-list-item .am-list-label,
+	#priceViewHolder .am-list-control {
+	color: #A5A5A5;
+}
+</style>
+<script type="text/javascript" src="../js/sea.js"></script>
+<script type="text/javascript">
+	seajs.config({
+		base : "../js/"
+	})
+</script>
+</head>
+<body>
+
+	<div id="loading" class="am-toast">
+		<div class="am-toast-text">
+			<span class="am-toast-icon am-icon" am-mode="toast-loading"></span>载入中
+		</div>
+	</div>
+	<div id="success" class="am-toast" style="display: none;">
+		<div class="am-toast-text">
+			<span class="am-toast-icon am-icon" am-mode="toast-success"></span>购买成功
+		</div>
+	</div>
+
+	<section id="index">
+		<div class="am-content">
+			<div class="am-list-header">购买地铁票</div>
+		</div>
+		<div id="type_select" class="am-tab">
+			<div class="am-tab-item" data-target="startForm" data-tab="selected">起始地</div>
+			<div class="am-tab-item" data-target="priceForm">票价</div>
+		</div>
+		<div id="indexContent"></div>
+	</section>
+
+
+	<section id="city" style="display: none;">city</section>
+	<section id="station" style="display: none;">station</section>
+
+	<script>
+		//  seajs.use("../js/antBridge");
+		seajs.use("../js/main", function(Index) {
+			new Index().render();
+		});
+	</script>
+</body>
+</html>

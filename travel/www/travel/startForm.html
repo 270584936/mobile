@@ -1,0 +1,93 @@
+<form id="form1" class="am-list am-list-flat am-list-flat-chip am-list-6lb">
+	<div class="am-list" am-mode="flat chip form">
+		<div class="am-list-body">
+			<div id="city_select" class="am-list-item am-input-autoclear">
+				<div class="am-list-label">起始城市</div>
+				<div class="am-list-control" adcode="3100">上海</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+				<div class="am-list-thumb">
+					<span class="am-icon" am-mode="arrow-horizontal"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list" am-mode="flat chip form">
+		<div class="am-list-body">
+
+			<div id="startStation_select" class="am-list-item am-input-autoclear">
+				<div class="am-list-label">出发站</div>
+				<div class="am-list-control am-flexbox">
+					<div class="adcode am-flexbox-item">请选择出发站</div>
+					<div class="adicon am-flexbox-item">					
+						<img src="../subway/img/start-marker.png" style="height: 25px;float: right;" />
+					</div>
+				</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+				<div class="am-list-thumb">
+					<span class="am-icon" am-mode="arrow-horizontal"></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="am-list" am-mode="flat chip form">
+		<div class="am-list-body">
+
+			<div id="endStation_select" class="am-list-item am-input-autoclear">
+				<div class="am-list-label">到达站</div>
+				<div class="am-list-control am-flexbox">
+					<div class="adcode am-flexbox-item">请选择到达站</div>
+					<div class="adicon am-flexbox-item">					
+						<img src="../subway/img/end-marker.png" style="height: 25px;float: right;" />
+					</div>
+				</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+				<div class="am-list-thumb">
+					<span class="am-icon" am-mode="arrow-horizontal"></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="am-list am-list-6lb" am-mode="flat chip form">
+		<div class="am-list-body">
+			<div id="priceViewHolder" class="am-list-item am-input-autoclear">
+				<div class="am-list-label">票价</div>
+				<div class="am-list-control">
+					<span id="price" style="margin-right: 5px;">3</span>元
+				</div>
+				<div class="am-list-clear">
+					<i class="am-icon-clear am-icon" am-mode="clear"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="am-content am-list">
+		<div class="am-flexbox am-flexbox-average">
+			<button id="purchase" type="button" class="am-button am-button-red">购买</button>
+		</div>
+	</div>
+</form>
+
+<script>
+	seajs.use("../js/main", function(Index) {
+		var index = new Index();
+		index.bindCitySelect();
+		index.bindStationSelect();
+		$('#purchase').on('click', function() {
+			$('#success').show();
+			setTimeout(function() {
+				$('#success').hide();
+			}, 1000);
+		});
+	});
+</script>
