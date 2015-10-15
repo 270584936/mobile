@@ -19,8 +19,9 @@ define(function(require, exports, module) {
 	}
 	module.exports = Station;
 
-	Station.prototype.init = function(target,adcode) {
-		var adcodeName='';
+	Station.prototype.init = function(target,adcode,adcodeName) {
+		$('#station_city').html(adcodeName);
+		var stName='';
 		var Scroller = require('./scroller');
 		this.loadData(adcode, function(drwData) {
 			console.log("drwData: " + drwData);
@@ -49,7 +50,7 @@ define(function(require, exports, module) {
 					}
 				}
 				$('#stationScroller').html('');
-				adcodeName = stData[0].name;
+				stName = stData[0].name;
 				new Scroller('#stationScroller', {
 					template : '<div class="scroller-component scroller-component-2x" data-role="component"> \
 						  <div class="scroller-mask scroller-mask-2x" data-role="mask"></div> \
@@ -60,7 +61,7 @@ define(function(require, exports, module) {
 					defaultValue : 0,
 					onSelect : function(value) {
 						console.log(value);
-						adcodeName = value;
+						stName = value;
 					}
 				});
 			}
@@ -122,7 +123,7 @@ define(function(require, exports, module) {
 		 */
 		$('#stationConfirm').on('click', function() {
 			//$('#startStation_select .am-list-content').text();
-			$(target + ' .am-list-control .adcode').html(adcodeName)
+			$(target + ' .am-list-control .adcode').html(stName)
 			$('section').hide();
 			$('#index').show();
 		});
