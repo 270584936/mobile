@@ -129,7 +129,7 @@ define(function (require, exports, module) {
                     var Station = require('./station');
                     var _station = new Station();
                     $('#station').show();
-                    _station.init('#startStation_select'); //坑、scroller组件必须在station.show之后布局才能正常显示
+                    _station.init('#startStation_select',$('#city_select .am-list-control').attr('adcode')); //坑、scroller组件必须在station.show之后布局才能正常显示
                 },
                 error: function (xhr, type) {
                     alert('error!');
@@ -150,7 +150,7 @@ define(function (require, exports, module) {
                     var Station = require('./station');
                     var _station = new Station();
                     $('#station').show();
-                    _station.init('#endStation_select');
+                    _station.init('#endStation_select',$('#city_select .am-list-control').attr('adcode'));
                 },
                 error: function (xhr, type) {
                     alert('error!');

@@ -19,10 +19,10 @@ define(function(require, exports, module) {
 	}
 	module.exports = Station;
 
-	Station.prototype.init = function(target) {
+	Station.prototype.init = function(target,adcode) {
 		var adcodeName='';
 		var Scroller = require('./scroller');
-		this.loadData('3100', function(drwData) {
+		this.loadData(adcode, function(drwData) {
 			console.log("drwData: " + drwData);
 			var lineData = [];
 			for(var line in drwData.lines){
