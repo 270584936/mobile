@@ -73,6 +73,12 @@ define(function(require, exports, module) {
 			});
 
 		});
+		
+		$('#stationList .am-city-select-group a').on('click',function(e){
+			$(target + ' .am-list-control .adcode').html($(this).html());
+			$('section').hide();
+			$('#index').show();
+		});
 	}
 
 	StationList.prototype.search = function() {
