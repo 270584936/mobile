@@ -93,8 +93,8 @@ define(function(require, exports, module) {
 
 		});
 
-		$('#stationList .am-city-select-group a').on('click', function(e) {
-			$(target + ' .am-list-control .adcode').html($(this).html());
+		$('#stationList .am-city-select-group li').on('click', function(e) {
+			$(target + ' .am-list-control .adcode').html($(this).find('a').html());
 			$('section').hide();
 			$('#index').show();
 		});
