@@ -109,7 +109,7 @@ define(function (require, exports, module) {
 
     Index.prototype.updateToMapViewport = function(){
     	var viewport = document.querySelector("meta[name=viewport]");
-        viewport.setAttribute('content', 'width=1000, initial-scale=0.5, maximum-scale=2.0, minimum-scale=0.5');
+//        viewport.setAttribute('content', 'width=1000, initial-scale=0.5, maximum-scale=2.0, minimum-scale=0.5');
     }
     Index.prototype.updateToDefaultViewport = function(){
     	var viewport = document.querySelector("meta[name=viewport]");
@@ -142,15 +142,15 @@ define(function (require, exports, module) {
             $('section').hide();
             $.ajax({
                 type: 'GET',
-                url: '../travel/station.html',
+                url: '../travel/stationList.html',
                 dataType: 'text/html',
                 timeout: 1000,
                 success: function (data) {
                     $('#station').html(data);
-                    var Station = require('./station');
-                    var _station = new Station();
+                    var StationList = require('./stationList');
+                    var _stationList = new StationList();
                     $('#station').show();
-                    _station.init('#endStation_select',$('#city_select .am-list-control').attr('adcode'),$('#city_select .am-list-control').html());
+                    _stationList.init('#endStation_select',$('#city_select .am-list-control').attr('adcode'),$('#city_select .am-list-control').html());
                 },
                 error: function (xhr, type) {
                     alert('error!');
