@@ -79,7 +79,7 @@ define(function(require, exports, module) {
 					}
 					_stView +='</div>';
 					
-					stationListHtml += '<li class="fn-clear"><div class="fn-left"><a sp="' + stations[j].sp + '" href="#">' + stations[j].name + '</a></div>'
+					stationListHtml += '<li class="fn-clear"><div class="fn-left"><a sp="' + stations[j].sp + '">' + stations[j].name + '</a></div>'
 							+ _stView + '</li>';
 				}
 				stationListHtml += '</ul></div>';
