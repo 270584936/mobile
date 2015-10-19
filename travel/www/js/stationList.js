@@ -89,28 +89,30 @@ define(function(require, exports, module) {
 					showFlag = true;
 				}
 			}
-			if (!showFlag) {
+			if (showFlag) {
+				$(stGroupArray[i]).show();
+			} else {
 				$(stGroupArray[i]).hide();
 			}
 		}
 	}
-	
+
 	StationList.prototype._fnThrottle = function(fn, freq) {
 		var frequency = freq !== undefined ? freq : 200, last, timer;
 
-			var that = this, now = +new Date(), args = arguments;
+		var that = this, now = +new Date(), args = arguments;
 
-			if (last && now < last + frequency) {
-				clearTimeout(timer);
+		if (last && now < last + frequency) {
+			clearTimeout(timer);
 
-				timer = setTimeout(function() {
-					last = undefined;
-					fn.apply(that, args);
-				}, frequency);
-			} else {
-				last = now;
+			timer = setTimeout(function() {
+				last = undefined;
 				fn.apply(that, args);
-			}
+			}, frequency);
+		} else {
+			last = now;
+			fn.apply(that, args);
+		}
 	}
 	StationList.prototype.fileNameData = {
 		'1100' : 'beijing',
