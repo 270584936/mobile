@@ -34,11 +34,18 @@ define(function(require, exports, module) {
 			for ( var line in lines) {
 				var stArray = lines[line].st;
 				for ( var i in stArray) {
-					stData[stArray[i].poiid] = {
-						name : stArray[i].n,
-						poiid : stArray[i].poiid,
-						sp : removeAllSpace(stArray[i].sp)
-					};
+					if (stData[stArray[i].poiid] && stData[stArray[i].poiid].l.indexOf(lines[line].kn) == -1) {
+						stData[stArray[i].poiid].l.push(lines[line].kn);
+						stData[stArray[i].poiid].lines.push(lines[line]);
+					} else {
+						stData[stArray[i].poiid] = {
+							name : stArray[i].n,
+							poiid : stArray[i].poiid,
+							sp : removeAllSpace(stArray[i].sp),
+							l : [ lines[line].kn ],
+							lines : [ lines[line] ]
+						};
+					}
 				}
 			}
 			console.log("stData: " + stData);
@@ -61,7 +68,19 @@ define(function(require, exports, module) {
 						+ '</div><ul class="am-city-select-list">';
 				var stations = stDataGroup[stDataGroupHeads[i]];
 				for ( var j in stations) {
-					stationListHtml += '<li><a sp="' + stations[j].sp + '" href="#">' + stations[j].name + '</a></li>';
+					var _st = stations[j];
+					var _stView = '<div class="fn-right">';
+					if (_st.l.length > 1) {
+						_st.lines.sort(that.sortLines);
+						for ( var i in _st.lines) {
+							_stView += '<span class="am-travel-icon" style="background-color:#'+_st.lines[i].cl+';" am-cl="' + _st.lines[i].cl + '" am-value="'
+									+ _st.lines[i].kn + '">' + _st.lines[i].kn + '</span>';
+						}
+					}
+					_stView +='</div>';
+					
+					stationListHtml += '<li class="fn-clear"><div class="fn-left"><a sp="' + stations[j].sp + '" href="#">' + stations[j].name + '</a></div>'
+							+ _stView + '</li>';
 				}
 				stationListHtml += '</ul></div>';
 			}
@@ -73,12 +92,16 @@ define(function(require, exports, module) {
 			});
 
 		});
-		
-		$('#stationList .am-city-select-group a').on('click',function(e){
+
+		$('#stationList .am-city-select-group a').on('click', function(e) {
 			$(target + ' .am-list-control .adcode').html($(this).html());
 			$('section').hide();
 			$('#index').show();
 		});
+	}
+	
+	StationList.prototype.sortLines = function (a,b){
+		return a.kn - b.kn;
 	}
 
 	StationList.prototype.search = function() {
