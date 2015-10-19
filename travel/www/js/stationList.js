@@ -79,7 +79,7 @@ define(function(require, exports, module) {
 					}
 					_stView +='</div>';
 					
-					stationListHtml += '<li class="fn-clear"><div class="fn-left"><a sp="' + stations[j].sp + '">' + stations[j].name + '</a></div>'
+					stationListHtml += '<li class="fn-clear" sp="' + stations[j].sp + '"><div class="fn-left"><a sp="' + stations[j].sp + '">' + stations[j].name + '</a></div>'
 							+ _stView + '</li>';
 				}
 				stationListHtml += '</ul></div>';
@@ -108,7 +108,7 @@ define(function(require, exports, module) {
 		var stGroupArray = $("#stationList .am-city-select-group");
 		var searchValue = $('#stationSearch').val();
 		for (var i = 0; i < stGroupArray.length; i++) {
-			var sts = $(stGroupArray[i]).find('li a');
+			var sts = $(stGroupArray[i]).find('li');
 			var showFlag = false;
 			for (var j = 0; j < sts.length; j++) {
 				if ($(sts[j]).attr('sp').indexOf(searchValue) == -1) {
