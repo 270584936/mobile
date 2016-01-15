@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>二维码地铁票</title>
+    <!-- inject:lib:css -->
+    <link rel="stylesheet" href="css/common/base.css">
+    <!-- endinject -->
+
+    <!-- inject:page:css -->
+    <link rel="stylesheet" href="css/offlinePay.css">
+    <!-- endinject -->
+</head>
+<body>
+<div id="J_view" class="main">
+
+    <div class="am-page-result">
+        <div class="am-page-result-wrap">
+            <div class="title">广州地铁票</div>
+            <div class="tip">请在广州地铁闸机扫码进出站</div>
+            <div id="J_qrcode" class="qrcode"></div>
+            <div class="refreshTip">票码每15s刷新一次</div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="copyright">本服务商由<img src="./img/icon_guangzhou_subway.png" width="16" height="16"/>广州地铁提供支持</div>
+</div>
+
+<div id="J_overlay" class="overlay dark">
+    <div class="am-page-result">
+        <div class="am-page-result-wrap">
+            <div id="J_qrcode_max" class="am-page-result-qrcode"></div>
+        </div>
+    </div>
+</div>
+<script src="lib/common/anima-yocto-1.1.8.js"></script>
+<script src="lib/common/antBridge.min.js"></script>
+
+<!-- inject:lib:js -->
+<script src="js/common/base.js"></script>
+<!-- endinject -->
+
+<!-- inject:page:js -->
+<script src="js/offlinePay.js"></script>
+<!-- endinject -->
+</body>
+</html>
