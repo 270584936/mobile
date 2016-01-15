@@ -1,0 +1,10 @@
+{
+  "spm": {
+    "dependencies": {
+      "ant-ui": "~9.0.2",
+      "anima-basescroller": "~1.2.0",
+      "anima-scroller": "~1.0.3",
+      "anima-yocto-touch": "~1.0.8"
+    }
+  }
+}

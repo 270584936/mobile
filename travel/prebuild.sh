@@ -1,0 +1,1 @@
+echo before build, hpm will run prebuild.sh first.

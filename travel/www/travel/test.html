@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>购买地铁票</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+
+    <script src='../js/zepto.min.js'></script>
+    <style>
+
+        .circle {
+            border-radius: 50%;
+            width: 5px;
+            height: 5px;
+            border: 3px solid ;
+            border-color: #c67605;
+        }
+    </style>
+    <script type="text/javascript" src="../js/sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            base : "../js/"
+        })
+    </script>
+</head>
+<body>
+
+
+<section id="index">
+    <div class="am-content">
+        <div class="am-list-header">购买地铁票</div>
+    </div>
+    <div id="type_select" class="am-tab">
+        <div class="am-tab-item" data-target="startForm" data-tab="selected">起始地</div>
+        <div class="am-tab-item" data-target="priceForm">票价</div>
+    </div>
+    <div id="indexContent">
+        <div id="map" style="margin-left:100px;width: 800px;height: 600px;background-color: #eff4ff;position: relative;">
+            <img id="mapImg" src="../imgs/shanghai2015.png" width="800" height="600" />
+        </div>
+        <div id="point"></div>
+    </div>
+</section>
+
+<script>
+    //  seajs.use("../js/antBridge");
+    seajs.use("../js/test", function(Test) {
+        new Test().render();
+    });
+</script>
+</body>
+</html>
